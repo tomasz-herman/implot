@@ -2595,11 +2595,11 @@ void PlotDigitalEx(const char* label_id, Getter getter, ImPlotDigitalFlags flags
                 if (pMin.x > x_axis.PixelMax) pMin.x = x_axis.PixelMax;
                 if (pMax.x > x_axis.PixelMax) pMax.x = x_axis.PixelMax;
                 //plot a rectangle that extends up to x2 with y1 height
-                if ((pMax.x > pMin.x) && (gp.CurrentPlot->PlotRect.Contains(pMin) || gp.CurrentPlot->PlotRect.Contains(pMax))) {
+                // if ((pMax.x > pMin.x) && (gp.CurrentPlot->PlotRect.Contains(pMin) || gp.CurrentPlot->PlotRect.Contains(pMax))) {
                     // ImVec4 colAlpha = item->Color;
                     // colAlpha.w = item->Highlight ? 1.0f : 0.9f;
                     draw_list.AddRectFilled(pMin, pMax, ImGui::GetColorU32(s.Colors[ImPlotCol_Fill]));
-                }
+                // }
                 itemData1 = itemData2;
             }
             gp.DigitalPlotItemCnt++;
