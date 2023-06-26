@@ -2555,7 +2555,8 @@ void PlotDigitalEx(const char* label_id, Getter getter, ImPlotDigitalFlags flags
     if (BeginItem(label_id, flags, ImPlotCol_Fill)) {
         ImPlotContext& gp = *GImPlot;
         ImDrawList& draw_list = *GetPlotDrawList();
-        const ImPlotNextItemData& s = GetItemData();
+        ImPlotNextItemData& s = const_cast<ImPlotNextItemData &>(GetItemData());
+        s.DigitalBitHeight = 40;
         if (getter.Count > 1 && s.RenderFill) {
             ImPlotPlot& plot   = *gp.CurrentPlot;
             ImPlotAxis& x_axis = plot.Axes[plot.CurrentX];
